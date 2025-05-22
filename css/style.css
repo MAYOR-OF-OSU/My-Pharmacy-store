@@ -1,5 +1,5 @@
 .gradient-background {
-  background: linear-gradient(300deg, #f5f0e6, #a67b5b, #8b5e3c);
+  background: linear-gradient(300deg, #89703e, #a67b5b, #382314);
   background-size: 180% 180%;
   animation: gradient-animation 18s ease infinite;
 }
@@ -102,7 +102,7 @@
   border-radius: 15px;
 }
 .hover-shadow {
-  transition: all 0.3s ease-in-out;
+  transition: all 2s ease-in-out;
 }
 .hover-shadow:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -115,6 +115,11 @@
   border-radius: 0.75rem;
 }
 
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+
 .profile-img {
   height: 100px;
   border-radius: 50%;
@@ -125,6 +130,16 @@
 }
 
 .hover-shadow:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(92, 29, 29, 0.2);
 }
+
+.hover-animate {
+  transition: transform 2.5s ease, box-shadow 0.3s ease;
+}
+
+.hover-animate:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
 
