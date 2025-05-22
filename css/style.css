@@ -11,6 +11,70 @@
   color: #4b3621; /* dark brown for good contrast */
 }
 
+/* For tablets (<= 991px) */
+@media (max-width: 991px) {
+  #testimonial .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #testimonial .col-lg-4 {
+    max-width: 80%;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  #testimonial h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* For mobile phones (<= 767px) */
+@media (max-width: 767px) {
+  #testimonial .col-lg-4 {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  #testimonial img {
+    height: auto;
+    max-height: 300px;
+    width: 100%;
+  }
+
+  #testimonial h1 {
+    font-size: 2rem;
+  }
+
+  #testimonial h2 {
+    font-size: 1.5rem;
+  }
+
+  #testimonial .lead {
+    font-size: 1rem;
+  }
+
+  #testimonial .container.py-5 {
+    padding: 2rem 1rem;
+  }
+}
+
+/* For very small screens (<= 480px) */
+@media (max-width: 480px) {
+  #testimonial img {
+    max-height: 250px;
+  }
+
+  #testimonial h1 {
+    font-size: 1.5rem;
+  }
+
+  #testimonial h2 {
+    font-size: 1.2rem;
+  }
+}
+
+
 @keyframes gradient-animation {
   0% {
     background-position: 0% 50%;
