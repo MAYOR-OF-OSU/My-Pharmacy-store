@@ -75,6 +75,14 @@
               Contact
             </a>
           </li>
+          <li>
+            <a href="#" class="nav-link text-white hover-animate hover-shadow">
+              <svg class="bi d-block mx-auto mb-1" width="24" height="24" aria-hidden="true">
+                <use xlink:href="#question-circle"></use> 
+              </svg>
+              FAQs
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -95,9 +103,6 @@
         <button type="button" class="btn btn-primary hover-animate hover-shadow">Sign-up</button>
       </div>
 
-      <a href="https://www.flaticon.com/free-icon/shopping-cart_3144456" class="view link-icon-detail" title="Shopping cart" data-id="3144456" data-src="?term=cart&amp;page=1&amp;position=1&amp;origin=tag">
-  <img src="https://cdn-icons-png.flaticon.com/128/3144/3144456.png" loading="lazy" alt="Shopping cart " title="Shopping cart " width="64" height="64">
-</a>
     </div>
   </div>
 </header>
@@ -214,10 +219,57 @@
   </div>
 </div>
   </section>
+<section class="products-grid">
+  <div class="product"><h5>Paracetamol</h5><p>Price: ₦200</p><button onclick="addToCart('Paracetamol', 200)">Add to Cart</button></div>
+  <div class="product"><h5>Amoxicillin</h5><p>Price: ₦700</p><button onclick="addToCart('Amoxicillin', 700)">Add to Cart</button></div>
+  <div class="product"><h5>Ibuprofen</h5><p>Price: ₦500</p><button onclick="addToCart('Ibuprofen', 500)">Add to Cart</button></div>
+  <div class="product"><h5>Cetirizine</h5><p>Price: ₦400</p><button onclick="addToCart('Cetirizine', 400)">Add to Cart</button></div>
+  <div class="product"><h5>Metformin</h5><p>Price: ₦800</p><button onclick="addToCart('Metformin', 800)">Add to Cart</button></div>
+  <div class="product"><h5>Lisinopril</h5><p>Price: ₦900</p><button onclick="addToCart('Lisinopril', 900)">Add to Cart</button></div>
+  <div class="product"><h5>Atorvastatin</h5><p>Price: ₦1200</p><button onclick="addToCart('Atorvastatin', 1200)">Add to Cart</button></div>
+  <div class="product"><h5>Omeprazole</h><p>Price: ₦1100</p><button onclick="addToCart('Omeprazole', 1100)">Add to Cart</button></div>
+  <div class="product"><h5>Amlodipine</h5><p>Price: ₦1300</p><button onclick="addToCart('Amlodipine', 1300)">Add to Cart</button></div>
+  <div class="product"><h5>Levothyroxine</h2><p>Price: ₦1500</p><button onclick="addToCart('Levothyroxine', 1500)">Add to Cart</button></div>
+  <div class="product"><h5>Simvastatin</h5><p>Price: ₦1600</p><button onclick="addToCart('Simvastatin', 1600)">Add to Cart</button></div>
+  <div class="product"><h5>Gabapentin</h5><p>Price: ₦1700</p><button onclick="addToCart('Gabapentin', 1700)">Add to Cart</button></div>
+  <div class="product"><h5>Hydrochlorothiazide</h5><p>Price: ₦1800</p><button onclick="addToCart('Hydrochlorothiazide', 1800)">Add to Cart</button></div>
+  <div class="product"><h5>Sertraline</h5><p>Price: ₦1900</p><button onclick="addToCart('Sertraline', 1900)">Add to Cart</button></div>
+</section>
+
+<br>
+<button id="view-cart-btn" onclick="toggleCart()">🛒 View Cart (<span id="cart-count">0</span>)</button>
+
+<div id="cart">
+  <h3>Your Cart</h3>
+  <ul id="cart-items"></ul>
+  <p>Total: ₦<span id="cart-total">0.00</span></p>
+
+  <form id="checkout-form" onsubmit="return submitOrder(event)" style="display:none;">
+    <h3>Delivery Details</h3>
+
+    <label for="name">Full Name *</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="phone">Phone Number *</label>
+    <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,15}" placeholder="Enter digits only">
+
+    <label for="email">Email Address *</label>
+    <input type="email" id="email" name="email" required placeholder="example@mail.com">
+
+    <label for="address">Delivery Address *</label>
+    <textarea id="address" name="address" rows="3" required></textarea>
+
+    <button type="submit" class="checkout-btn">✅ Confirm Order</button>
+  </form>
+
+  <button class="checkout-btn" onclick="showCheckoutForm()">Checkout 🛒</button>
+
+  <p id="checkout-message"></p>
+</div>
 
 <section id="drugs" class="py-5 bg-light">
   <div class="container">
-    <h2 class="text-center mb-5 display-5 fw-bold text-primary" data-aos="fade-up">Available Drugs</h2>
+    <h2 class="text-center mb-5 display-5 fw-bold text-primary" data-aos="fade-up">Info on the available drugs</h2>
     <div class="row g-4">
 
       <!-- Drug Card 1 -->
@@ -226,7 +278,7 @@
           <div class="card-body">
             <h5 class="card-title text-success">Paracetamol</h5>
             <p class="card-text">Used to relieve pain and reduce fever. Common for headaches, muscle aches, etc.</p>
-            <p class="fw-bold">Price: ₦200</p>
+            <p class="fw-bold">Communicate with your doctor if there's any change or side effects</p>
           </div>
         </div>
       </div>
@@ -237,7 +289,7 @@
           <div class="card-body">
             <h5 class="card-title text-success">Amoxicillin</h5>
             <p class="card-text">An antibiotic used to treat a wide variety of bacterial infections.</p>
-            <p class="fw-bold">Price: ₦700</p>
+            <p class="fw-bold">Communicate with your doctor if there's any change or side effects</p>
           </div>
         </div>
       </div>
@@ -248,7 +300,7 @@
           <div class="card-body">
             <h5 class="card-title text-success">Ibuprofen</h5>
             <p class="card-text">Nonsteroidal anti-inflammatory drug (NSAID) used for pain relief and inflammation.</p>
-            <p class="fw-bold">Price: ₦500</p>
+            <p class="fw-bold">Communicate with your doctor if there's any change or side effects</p>
           </div>
         </div>
       </div>
@@ -259,7 +311,7 @@
           <div class="card-body">
             <h5 class="card-title text-success">Cetirizine</h5>
             <p class="card-text">An antihistamine used to relieve allergy symptoms such as runny nose and sneezing.</p>
-            <p class="fw-bold">Price: ₦400</p>
+            <p class="fw-bold">Communicate with your doctor if there's any change or side effects</p>
           </div>
         </div>
       </div>
@@ -269,7 +321,7 @@
           <div class="card-body">
             <h5 class="card-title text-success">Metformin</h5>
             <p class="card-text">Used to improve blood sugar control in adults with type 2 diabetes.</p>
-            <p class="fw-bold">Price: ₦800</p>
+            <p class="fw-bold">Communicate with your doctor if there's any change or side effects</p>
           </div>
         </div>
       </div>
@@ -279,7 +331,7 @@
           <div class="card-body">
             <h5 class="card-title text-success">Lisinopril</h5>
             <p class="card-text">Used to treat high blood pressure and heart failure.</p>
-            <p class="fw-bold">Price: ₦900</p>
+            <p class="fw-bold">Communicate with your doctor if there's any change or side effects</p>
           </div>
         </div>
       </div>
@@ -289,7 +341,7 @@
           <div class="card-body">
             <h5 class="card-title text-success">Atorvastatin</h5>
             <p class="card-text">Used to lower cholesterol and triglyceride levels in the blood.</p>
-            <p class="fw-bold">Price: ₦1200</p>
+            <p class="fw-bold">Communicate with your doctor if there's any change or side effects</p>
           </div>
         </div>
       </div>
@@ -299,7 +351,7 @@
           <div class="card-body">
             <h5 class="card-title text-success">Omeprazole</h5>
             <p class="card-text">Used to treat gastroesophageal reflux disease (GERD) and other stomach issues.</p>
-            <p class="fw-bold">Price: ₦1100</p>
+            <p class="fw-bold">Communicate with your doctor if there's any change or side effects</p>
           </div>
         </div>
       </div>
@@ -309,7 +361,7 @@
           <div class="card-body">
             <h5 class="card-title text-success">Amlodipine</h5>
             <p class="card-text">Used to treat high blood pressure and chest pain (angina).</p>
-            <p class="fw-bold">Price: ₦1300</p>
+            <p class="fw-bold">Communicate with your doctor if there's any change or side effects</p>
           </div>
         </div>
       </div>
@@ -319,7 +371,7 @@
           <div class="card-body">
             <h5 class="card-title text-success">Levothyroxine</h5>
             <p class="card-text">Used to treat hypothyroidism (low thyroid hormone levels).</p>
-            <p class="fw-bold">Price: ₦1500</p>
+            <p class="fw-bold">Communicate with your doctor if there's any change or side effects</p>
           </div>
         </div>
       </div>
@@ -329,7 +381,7 @@
           <div class="card-body">
             <h5 class="card-title text-success">Simvastatin</h5>
             <p class="card-text">Used to lower cholesterol and triglyceride levels in the blood.</p>
-            <p class="fw-bold">Price: ₦1600</p>
+            <p class="fw-bold">Communicate with your doctor if there's any change or side effects</p>
           </div>
         </div>
       </div>
@@ -339,10 +391,29 @@
           <div class="card-body">
             <h5 class="card-title text-success">Gabapentin</h5>
             <p class="card-text">Used to treat nerve pain and seizures.</p>
-            <p class="fw-bold">Price: ₦1700</p>
+            <p class="fw-bold">Communicate with your doctor if there's any change or side effects</p>
           </div>
         </div>
       </div>
+      <!-- Drug Card 13 --> 
+      <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="1200">
+        <div class="card h-100 shadow hover-shadow">
+          <div class="card-body">
+            <h5 class="card-title text-success">Hydrochlorothiazide</h5>
+            <p class="card-text">Used to treat high blood pressure and fluid retention.</p>
+            <p class="fw-bold">Communicate with your doctor if there's any change or side effects</p>
+          </div>
+        </div>
+      </div>
+      <!-- Drug Card 14 -->
+      <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="1300">
+        <div class="card h-100 shadow hover-shadow">
+          <div class="card-body">
+            <h5 class="card-title text-success">Sertraline</h5>
+            <p class="card-text">Used to treat depression, anxiety, and other mood disorders.</p>
+            <p class="fw-bold">Communicate with your doctor if there's any change or side effects</p>
+          </div>
+        </div>
 
       <!-- Add more drug cards as needed -->
 
@@ -455,6 +526,123 @@
 <script>
   AOS.init();
 </script>
+
+
+<script>
+  let cart = [];
+
+  function addToCart(name, price) {
+    const item = cart.find(i => i.name === name);
+    if (item) {
+      item.quantity++;
+    } else {
+      cart.push({ name, price, quantity: 1 });
+    }
+    updateCart();
+  }
+
+  function removeFromCart(name) {
+    const index = cart.findIndex(item => item.name === name);
+    if (index !== -1) {
+      if (cart[index].quantity > 1) {
+        cart[index].quantity--;
+      } else {
+        cart.splice(index, 1);
+      }
+    }
+    updateCart();
+  }
+
+  function updateCart() {
+    const cartItems = document.getElementById('cart-items');
+    const cartCount = document.getElementById('cart-count');
+    const cartTotal = document.getElementById('cart-total');
+
+    cartItems.innerHTML = '';
+    let total = 0;
+    let count = 0;
+
+    cart.forEach(item => {
+      const li = document.createElement('li');
+
+      li.innerHTML = `
+        ${item.name} - ₦${item.price} 
+        Quantity: 
+        <input type="number" min="1" value="${item.quantity}" style="width:50px" onchange="changeQuantity('${item.name}', this.value)">
+        = ₦${item.price * item.quantity}
+        <button class="remove-btn" onclick="removeFromCart('${item.name}')">Remove</button>
+      `;
+
+      cartItems.appendChild(li);
+      total += item.price * item.quantity;
+      count += item.quantity;
+    });
+
+    cartTotal.textContent = total.toFixed(2);
+    cartCount.textContent = count;
+  }
+
+  function changeQuantity(name, qty) {
+    qty = parseInt(qty);
+    if (qty <= 0 || isNaN(qty)) return;
+
+    const item = cart.find(i => i.name === name);
+    if (item) {
+      item.quantity = qty;
+      updateCart();
+    }
+  }
+
+  function toggleCart() {
+    const cartEl = document.getElementById('cart');
+    cartEl.style.display = cartEl.style.display === 'none' ? 'block' : 'none';
+    // Hide checkout form if open when toggling cart
+    document.getElementById('checkout-form').style.display = 'none';
+    document.getElementById('checkout-message').textContent = '';
+  }
+
+  function showCheckoutForm() {
+    if (cart.length === 0) {
+      alert("Your cart is empty. Please add some products before checking out.");
+      return;
+    }
+    document.getElementById('checkout-form').style.display = 'block';
+    document.getElementById('checkout-message').textContent = '';
+  }
+
+  function submitOrder(event) {
+    event.preventDefault();
+
+    // Simple validation handled by HTML5 required attributes
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const address = document.getElementById('address').value.trim();
+
+    if (!name || !phone || !email || !address) {
+      alert("Please fill all delivery details.");
+      return false;
+    }
+
+    // Here you could send order data to server or API (not included)
+    // For now, just show success message and reset everything
+
+    let summary = cart.map(item => `${item.name} x${item.quantity}`).join(', ');
+    alert(`Order confirmed!\n\nCustomer: ${name}\nPhone: ${phone}\nEmail: ${email}\nAddress: ${address}\n\nItems: ${summary}\nTotal: ₦${document.getElementById('cart-total').textContent}`);
+
+    // Clear cart and form
+    cart = [];
+    updateCart();
+    document.getElementById('checkout-form').reset();
+    document.getElementById('checkout-form').style.display = 'none';
+    document.getElementById('checkout-message').textContent = "✅ Thank you for your order!";
+
+    return false;
+  }
+
+  updateCart();
+</script>
+
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
